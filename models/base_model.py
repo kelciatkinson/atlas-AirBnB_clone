@@ -13,7 +13,7 @@ class BaseModel():
         self.updated_at = datetime.now()
 
     def __str__(self):
-        return "[{}] ({}) {}".format(
+        return"[{}] ({}) {}".format(
             self.__class__.__name__,
             self.id,
             self.__dict__)
@@ -28,3 +28,9 @@ class BaseModel():
         dictionary["created_at"] = self.created_at.isoformat()
         dictionary["updated_at"] = self.updated_at.isoformat()
         return dictionary
+
+    def __str__(self):
+        return"[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__)
