@@ -12,12 +12,6 @@ class BaseModel():
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
-    def __str__(self):
-        return"[{}] ({}) {}".format(
-            self.__class__.__name__,
-            self.id,
-            self.__dict__)
-
     def save(self):
         """Update updated_at with current datetime."""
         self.updated_at = datetime.now()
@@ -28,3 +22,9 @@ class BaseModel():
         dictionary["created_at"] = self.created_at.isoformat()
         dictionary["updated_at"] = self.updated_at.isoformat()
         return dictionary
+
+    def __str__(self):
+        return"[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__)
