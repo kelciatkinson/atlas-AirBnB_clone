@@ -4,8 +4,10 @@ from datetime import datetime
 """ BaseModel class, where other
 classes will inherit"""
 
+
 class BaseModel():
     """Base Model Class"""
+    
     
     def __init__(self, *args, **kwargs):
         """Base Model Class Initialization"""
