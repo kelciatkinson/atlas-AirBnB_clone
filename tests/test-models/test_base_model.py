@@ -12,10 +12,9 @@ class BaseModel():
     """Base Model Class"""
 
 
-    def test_id(self):
+    def test_init(self):
         """was a new base created"""
-        modell = BaseModel()
-        self.assertIsNotNone(modell.id)
+        self.assertTrue(isinstance(base, BaseModel))
 
     def test_save(self):
         """test save method of BaseModel"""
