@@ -8,7 +8,7 @@ import cmd
 
 
 class HBNBCommand(cmd.Cmd):
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
 
     def do_hbnh(self, line):
         print("hello")
@@ -30,6 +30,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         return True
+
+    def emptyline(self):
+        pass
 
 
 if __name__ == "__main__":
