@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """This module defines a simple command-line interface using the cmd module.
 Commands available:
+ - create: Creates a new instance of BaseModel, prints id.
  - help: Provides help information for commands.
- - quit: Exits the program
- - EOF: Exits the program"""
+ - quit: Exits the program.
+ - EOF: Exits the program."""
 import cmd
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -12,6 +14,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_hbnh(self, line):
         print("hello")
+
 
     def do_help(self, arg):
         if arg:
@@ -26,7 +29,47 @@ class HBNBCommand(cmd.Cmd):
                   "========================================\n"
                   "EOF  help  quit")
 
-    def help_quit(self):
+    def do_create(self, cls):
+        if not cls:
+            print("** class name missing **")
+            return
+
+        if cls != "BaseModel":
+            print("** class doesn't exit **")
+            return
+
+        instance = BaseModel()
+        # still need to write!!!
+        # save to JSON file
+        print(instance.id)
+
+    def do_show(self, arg):
+        args = arg.split()
+        
+        if not args:
+            print("** class name missing **")
+            return
+
+        cls = args[0]
+        if cls != "BaseModel":
+            print("** class doesn't exit **")
+            return
+
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+
+        instance_id = args[1]
+        with open("{}.json".format(cls.__name__), "r") as file:
+            json_string = file.read()
+                
+                    
+
+
+
+        
+
+    def help_quit(self, line):
         print("Quit command to exit the program")
 
     def do_quit(self, line):
