@@ -18,5 +18,8 @@ class Test_Base(unittest.TestCase):
 
     def test_save(self):
         """test save method of BaseModel"""
-        base.save()
-        self.assertNotEqual(base.created_at, base.updated_at)
+        a = BaseModel()
+        initial = a.updated_at
+        a.save()
+        stored = a.updated_at
+        self.assertNotEqual(initial,stored)
