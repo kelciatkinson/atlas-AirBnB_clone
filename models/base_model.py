@@ -21,19 +21,17 @@ class Base:
         self.id = str(uuid.uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
-        if kwargs:
-            for key, value in kwargs.items():
-                if key == "created_at" or key == "updated_at":
-                    value = datetime.strptime(value, %Y-%m-%dT%H:%M:%S.%f)
-                else:
-                    
+
+    def __str__(self):
+        return ("[{}] ({}) {}".format(__class__ ,self.id, self.__dict__))
+
     def save(self):
         """Update updated_at with current datetime."""
         self.updated_at = datetime.today()
 
     def to_dict(self):
-
-
-
-
-
+        dictoinary = self.__dict__.copy()
+        dictionary["__class__"] = self.__class__.__name__
+        dictionary["created_at"] = self.created_at.isoformat()
+        dictionary["updated_at"] = slef.updated_at.isoformat()
+        return dictionary
