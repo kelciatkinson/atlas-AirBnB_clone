@@ -8,6 +8,7 @@ import cmd
 
 
 class HBNBCommand(cmd.Cmd):
+    prompt = "(hbnb)"
 
     def do_hbnh(self, line):
         print("hello")
