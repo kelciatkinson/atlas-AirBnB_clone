@@ -20,4 +20,4 @@ class BaseModel():
     def test_save(self):
         """test save method of BaseModel"""
         base.save()
-        self.assertNotEqual(self.model.created_at, self.model.updated_at)
+        self.assertNotEqual(base.model.created_at, base.model.updated_at)
