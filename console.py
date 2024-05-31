@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        pass
+        return
 
 
 if __name__ == "__main__":
