@@ -1,26 +1,16 @@
 #!/usr/bin/python3
 import uuid
-
-class BaseModel():
-    
-    def __init__(self, id=None):
-        self.id = uuid.uuid4()
-
-#!/usr/bin/python3
-"""Base model class for AirBnB - The Console
-"""
-import uuid
 from datetime import datetime
 
 
-class Base:
+class BaseModel():
     """Base Model Class"""
     
     def __init__(self, *args, **kwargs):
         """Base Model Class Initialization"""
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def __str__(self):
         return ("[{}] ({}) {}".format(__class__ ,self.id, self.__dict__))
