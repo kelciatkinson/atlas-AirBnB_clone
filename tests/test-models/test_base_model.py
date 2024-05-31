@@ -5,6 +5,9 @@ import uuid
 import datetime
 from models.base_model import BaseModel
 
+base = BaseModel()
+
+
 class BaseModel():
     """Base Model Class"""
 
@@ -16,4 +19,5 @@ class BaseModel():
 
     def test_save(self):
         """test save method of BaseModel"""
+        base.save()
         self.assertNotEqual(self.model.created_at, self.model.updated_at)
