@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
-
+""" BaseModel class, where other
+classes will inherit"""
 
 class BaseModel():
     """Base Model Class"""
@@ -10,10 +11,6 @@ class BaseModel():
         """Base Model Class Initialization"""
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
-        self.updated_at = datetime.now()
-
-    def save(self):
-        """Update updated_at with current datetime."""
         self.updated_at = datetime.now()
 
     def to_dict(self):
@@ -28,3 +25,8 @@ class BaseModel():
             self.__class__.__name__,
             self.id,
             self.__dict__)
+
+    def save(self):
+        """Update updated_at with current datetime."""
+        self.updated_at = datetime.now()
+        
