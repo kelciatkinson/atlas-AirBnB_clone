@@ -20,7 +20,7 @@ class BaseModel():
 
     def save(self):
         """Update updated_at with current datetime."""
-        self.updated_at = datetime.today()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         dictionary = self.__dict__.copy()
