@@ -2,7 +2,7 @@
 """This module defines a simple command-line interface using the cmd module.
 Commands available:
  - help: Provides help information for commands.
- - exit: Exits the program
+ - quit: Exits the program
  - EOF: Exits the program"""
 import cmd
 
