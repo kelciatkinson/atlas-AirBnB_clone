@@ -23,3 +23,10 @@ class Test_Base(unittest.TestCase):
         a.save()
         stored = a.updated_at
         self.assertNotEqual(initial,stored)
+
+    def test_to_dict(self):
+        a = BaseModel()
+        dictionary = a.to_dict()
+        self.assertEqual(dictionary["__class__"], "BaseModel")
+        self.assertEqual(dictionary["created_at"], a.created_at.isoformat())
+        self.assertEqual(dictionary["updated_at"], a.created_at.isoformat())
