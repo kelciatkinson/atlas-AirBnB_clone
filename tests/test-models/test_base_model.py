@@ -8,7 +8,7 @@ from models.base_model import BaseModel
 base = BaseModel()
 
 
-class BaseModel():
+class Test_Base(unittest.TestCase):
     """Base Model Class"""
 
 
@@ -19,4 +19,4 @@ class BaseModel():
     def test_save(self):
         """test save method of BaseModel"""
         base.save()
-        self.assertNotEqual(base.model.created_at, base.model.updated_at)
+        self.assertNotEqual(base.created_at, base.updated_at)
