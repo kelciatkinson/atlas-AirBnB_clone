@@ -21,12 +21,19 @@ class HBNBCommand(cmd.Cmd):
                 return
             func()
         else:
-            commands = {"quit": "Quit command to exit the program",
-                        "EOF": "EOF command to exit the program",
-                        "help": "Help command"}
+            command = ["EOF", "help", "quit"]
+            print("Documented commands(type help <topic>):\n"
+                  "========================================\n"
+                  "EOF  help  quit")
+
+    def help_quit(self):
+        print("Quit command to exit the program")
 
     def do_quit(self, line):
         return True
+
+    def help_EOF(self, line):
+        print("EOF command to exit the program")
 
     def do_EOF(self, line):
         return True
