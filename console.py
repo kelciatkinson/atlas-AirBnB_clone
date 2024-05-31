@@ -1,12 +1,27 @@
 #!/usr/bin/python3
 import cmd
 
-class Console(cmd.Cmd):
-    def do_greet(self, line):
+class HBNBCommand(cmd.Cmd):
+    def do_hbnh(self, line):
         print("hello")
 
-    def do_exit(self, line):
+    def do_help(self, arg):
+        if arg:
+            try:
+                func = getattr(self, "help_" + arg)
+            except AttributeError:
+                return
+            func()
+        else:
+            commands = {"quit": "Quit command to exit the program",
+                        "EOF": "EOF command to exit the program",
+                        "help": "Help command"}
+
+    def do_quit(self, line):
+        return True
+
+    def do_EOF(self, line):
         return True
 
 if __name__ == "__main__":
-    Console().cmdloop()
+    HBNBCommand().cmdloop()
