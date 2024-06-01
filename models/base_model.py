@@ -10,7 +10,11 @@ class BaseModel():
     
     
     def __init__(self, *args, **kwargs):
-        """Base Model Class Initialization"""
+        """Base Model Class Initialization
+        Unique identifier is assigned to the instance
+        sets created_at and updated_at attribute to the current date and time
+        assigns datetime to created_at updated_at in a string
+        """
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
@@ -25,6 +29,7 @@ class BaseModel():
                 self.created_at = self.updated_at = datetime.now()
 
     def to_dict(self):
+        """converts an instance of a class into a dict representation"""
         dictionary = self.__dict__.copy()
         dictionary["__class__"] = self.__class__.__name__
         dictionary["created_at"] = self.created_at.isoformat()
@@ -32,6 +37,7 @@ class BaseModel():
         return dictionary
 
     def __str__(self):
+        """provides human readable prepresentation of an obj"""
         return"[{}] ({}) {}".format(
             self.__class__.__name__,
             self.id,

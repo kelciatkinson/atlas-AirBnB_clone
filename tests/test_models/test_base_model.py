@@ -3,6 +3,7 @@
 import unittest
 import uuid
 import datetime
+import models.base_model
 from models.base_model import BaseModel
 
 base = BaseModel()
