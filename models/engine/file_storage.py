@@ -7,33 +7,24 @@ from models.base_model import BaseModel
 
 class FileStorage():
     """File Storage Class"""
-    def __init__(self, file_path, objects):
-        self.file_path = file_path
-        # string (path to the JSON file (ex: file.json))
-        self.objects = objects
-        # dictionary (empty byt will store all objects by <class name>.id
-        # (ex: to store a BaseModel object with id=12121212, the key will be BaseMode.12121212))
-
-    @property
-    def file_path(self):
-        return self.__file_path
-
-    @file_path.setter
-    def file_path(self, value):
-        self.__file_path = value
-
-    @property
-    def objects(self):
-        return self.__objects
-
-    @objects.setter
-    def objects(self, value):
-
-        self.__objects = value
+    __file_path = "file.json"
+    __objects = {}
 
     def all(self):
+        """This method returns the dictionary __objects."""
         return self.__objects
 
     def new(self, obj):
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        self.objects[key] = obj
+        self.__objects[key] = obj
+
+    def save(self):
+        objects_dict =  {}
+        for key in self.__objects:
+            obj = self.__objects[key]
+            objects_dict[key] = obj.to_dict()
+        with open(self.__file_path, 'w') as file:
+                json.dump(objects_dict, file)
+
+    def reload(self):
+        pass
