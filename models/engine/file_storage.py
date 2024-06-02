@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This module defines the class FileStorage"""
+from models.base_model import BaseModel
 import json
 import os
 
@@ -37,10 +38,5 @@ class FileStorage():
         if os.path.isfile(self.__file_path):
             with open(self.__file_path, "r") as file:
                 objects_dict = json.load(file)
-            for key, obj in objects_dict.items():
-                class_name = obj["__class__"]
-                if class_name == "BaseModel":
-                    from models.base_model import BaseModel
-                    self.__objects[key] = BaseModel(**obj)
-
-
+            for key, value in objects_dict.items():
+                self.__objects[key] = BaseModel(**value)
