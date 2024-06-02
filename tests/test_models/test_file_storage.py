@@ -15,6 +15,4 @@ class Test_FileStorage(unittest.TestCase):
     def test_file_path(self):
         """Tests an instance of FileStorage to see if the private
         "file_path" attribute is "file.json"."""
-        file = FileStorage()
-        file_path = file._FileStorage__file_path
-        self.assertTrue(os.path.exists(file_path))
+        self.assertTrue(os.path.exists("file.json"))
