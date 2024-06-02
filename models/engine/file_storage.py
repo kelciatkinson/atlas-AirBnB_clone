@@ -9,6 +9,14 @@ class FileStorage():
     __file_path = "file.json"
     __objects = {}
 
+    @property
+    def file_path(self):
+        return self.__file_path
+
+    @file_path.setter
+    def file_path(self, value):
+        self.__file_path = value
+
     def all(self):
         """Returns the dictionary __objects. This method provides access to the
         dictionary "__objects" that stores all objects managed by the instance 
