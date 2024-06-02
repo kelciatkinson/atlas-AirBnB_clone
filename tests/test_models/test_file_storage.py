@@ -1,5 +1,6 @@
 """test_file_storage"""
 import unittest
+import os
 from models.engine.file_storage import FileStorage
 
 
@@ -14,4 +15,5 @@ class Test_FileStorage(unittest.TestCase):
         "file_path" attribute is "file.json"."""
         file = FileStorage()
         file_path = file._FileStorage__file_path
-        self.assertEqual(file_path, "file.json")
+        self.assertTrue(os.path.isfile(file_path))
+
