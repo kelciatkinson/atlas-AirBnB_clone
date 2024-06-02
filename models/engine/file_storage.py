@@ -6,7 +6,7 @@ import os
 
 class FileStorage():
     """File Storage Class"""
-    __file_path = "__class__.__name__"
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
