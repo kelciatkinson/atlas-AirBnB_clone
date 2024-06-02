@@ -1,12 +1,6 @@
 """module for test_base"""
-
 import unittest
-import uuid
-import datetime
-import models.base_model
 from models.base_model import BaseModel
-
-base = BaseModel()
 
 
 class Test_Base(unittest.TestCase):
@@ -15,6 +9,7 @@ class Test_Base(unittest.TestCase):
 
     def test_init(self):
         """was a new base created"""
+        base = BaseModel()
         self.assertTrue(isinstance(base, BaseModel))
 
     def test_save(self):
