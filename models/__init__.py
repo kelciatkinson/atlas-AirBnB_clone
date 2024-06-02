@@ -3,4 +3,4 @@ import json
 from models.engine.file_storage import FileStorage
 
 storage = FileStorage()
-# reload
+storage.reload()
