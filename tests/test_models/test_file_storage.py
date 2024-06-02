@@ -2,6 +2,8 @@
 import unittest
 import os
 from models.engine.file_storage import FileStorage
+from models.base_model import BaseModel
+
 
 
 class Test_FileStorage(unittest.TestCase):
@@ -16,4 +18,3 @@ class Test_FileStorage(unittest.TestCase):
         file = FileStorage()
         file_path = file._FileStorage__file_path
         self.assertTrue(os.path.exists(file_path))
-
