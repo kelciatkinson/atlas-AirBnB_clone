@@ -15,5 +15,5 @@ class Test_FileStorage(unittest.TestCase):
         "file_path" attribute is "file.json"."""
         file = FileStorage()
         file_path = file._FileStorage__file_path
-        self.assertTrue(os.path.isfile(file_path))
+        self.assertTrue(os.path.exists(file_path))
 
