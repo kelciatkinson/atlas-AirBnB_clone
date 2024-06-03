@@ -30,17 +30,20 @@ class HBNBCommand(cmd.Cmd):
                   "EOF  help  quit")
 
     def do_create(self, cls):
+        """This method creates a new instance of BaseModel and saves it to
+        the JSON file, then prints the ID."""
         if not cls:
             print("** class name missing **")
             return
 
-        if cls != "BaseModel":
-            print("** class doesn't exit **")
+        name = cls.split()[0]
+
+        if name != "BaseModel":
+            print("** class doesn't exist **")
             return
 
         instance = BaseModel()
-        # still need to write!!!
-        # save to JSON file
+        instance.save()
         print(instance.id)
 
     def do_show(self, arg):
