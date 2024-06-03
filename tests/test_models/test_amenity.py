@@ -1,11 +1,16 @@
+#!/usr/bin/python3
 """test_amenity"""
 import unittest
-import models.amenity
-from models.amenity import Amenity
+import os
+import models.amenity import Amenity
+from models.engine.file_storage import FileStorage
+
 
 class TestAmenity(unittest.TestCase):
     """Test the class Amenity"""
 
-    def test_init(self):
+    def test_amenity(self):
         """Test the initialization of Amenity class"""
-        self.assertEqual(self.place1.city_id, "")
+        amenity = Amenity()
+        self.assertEqual(amenity.name, "")
+        self.assertTrue(hasattr(amenity, "name"))
