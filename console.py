@@ -7,6 +7,7 @@ Commands available:
  - EOF: Exits the program."""
 import cmd
 from models.base_model import BaseModel
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -47,14 +48,14 @@ class HBNBCommand(cmd.Cmd):
         print(instance.id)
 
     def do_show(self, arg):
+
         args = arg.split()
-        
+
         if not args:
             print("** class name missing **")
             return
 
-        cls = args[0]
-        if cls != "BaseModel":
+        if args[0] != "BaseModel":
             print("** class doesn't exit **")
             return
 
@@ -62,15 +63,26 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
 
-        instance_id = args[1]
-        with open("{}.json".format(cls.__name__), "r") as file:
-            json_string = file.read()
-                
-                    
+        key = "{}.{}".format(args[0], args[1])
+        print(storage.all()[key])
 
+    def do_all(self, line):
+        list_inst = []
+        if line:
 
+            args = line.split()
 
-        
+            if args[0] != "BaseModel":
+                print("** class doesn't exist **")
+                return
+
+            for key, obj in storage.all().items():
+                if key:
+                    list_inst.append(str(obj))
+        else:
+            for obj in storage.all().values():
+                list_inst.append(str(obj))
+        print(list_inst)
 
     def help_quit(self, line):
         print("Quit command to exit the program")
