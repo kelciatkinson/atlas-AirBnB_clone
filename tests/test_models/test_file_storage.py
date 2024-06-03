@@ -1,7 +1,6 @@
 """test_file_storage"""
 import unittest
 import os
-import models
 from models.engine.file_storage import FileStorage
 
 
