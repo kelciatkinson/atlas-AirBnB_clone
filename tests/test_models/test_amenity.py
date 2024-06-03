@@ -2,7 +2,7 @@
 """test_amenity"""
 import unittest
 import os
-import models.amenity import Amenity
+from models.amenity import Amenity
 from models.engine.file_storage import FileStorage
 
 

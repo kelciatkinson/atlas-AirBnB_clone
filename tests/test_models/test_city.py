@@ -2,7 +2,7 @@
 """test_city"""
 import unittest
 import os
-import models.engine.file_storage import FileStorage
+from models.engine.file_storage import FileStorage
 from models.city import City
 
 
