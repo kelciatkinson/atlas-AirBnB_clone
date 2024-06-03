@@ -109,7 +109,38 @@ class HBNBCommand(cmd.Cmd):
 
         del storage.all()[key]
         storage.save()
-            
+
+    def do_update(self, line):
+        args = line.split()
+        if not args:
+            print("** class name missing **")
+            return
+
+        if args[0] != "BaseModel":
+            print("** class doesn't exist **")
+            return
+
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+
+        key = "{}.{}".format(args[0], args[1])
+        if key not in storage.all():
+            print("** no instance found **")
+            return
+
+        if len(args) < 3:
+            print("** attribute name missing **")
+            return
+
+        if len(args) < 4:
+            print("** value missing **")
+            return
+
+        object = storage.all()[key]
+        setattr(object, args[2], args[3])
+        object.save()
+
     def help_quit(self, line):
         print("Quit command to exit the program")
 
