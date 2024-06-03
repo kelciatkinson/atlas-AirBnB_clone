@@ -56,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         if args[0] != "BaseModel":
-            print("** class doesn't exit **")
+            print("** class doesn't exist **")
             return
 
         if len(args) < 2:
@@ -64,6 +64,10 @@ class HBNBCommand(cmd.Cmd):
             return
 
         key = "{}.{}".format(args[0], args[1])
+        if key not in storage.all():
+            print("** no instance found **")
+            return
+
         print(storage.all()[key])
 
     def do_all(self, line):
@@ -84,6 +88,28 @@ class HBNBCommand(cmd.Cmd):
                 list_inst.append(str(obj))
         print(list_inst)
 
+    def do_destroy(self, line):
+        args = line.split()
+        if not args:
+            print("** class name is missing **")
+            return
+
+        if args[0] != "BaseModel":
+            print("** class doesn't exist **")
+            return
+
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+
+        key = "{}.{}".format(args[0], args[1])
+        if key not in storage.all():
+            print("** no instance found **")
+            return
+
+        del storage.all()[key]
+        storage.save()
+            
     def help_quit(self, line):
         print("Quit command to exit the program")
 
