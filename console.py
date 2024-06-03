@@ -91,7 +91,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, line):
         args = line.split()
         if not args:
-            print("** class name is missing **")
+            print("** class name missing **")
             return
 
         if args[0] != "BaseModel":
