@@ -15,8 +15,8 @@ class Test_Base(unittest.TestCase):
 
     def test_save(self):
         """test save method of BaseModel"""
-        one_save = my_model.updated_at
         my_model = my_model.save()
+        one_save = my_model.updated_at
         self.assertTrue(os.path.exists("file.json"))
         two_save = my_model.updated_at
         self.assertNotEqual(one_save, two_save)
