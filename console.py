@@ -17,14 +17,12 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
+    """A command-line interface for managing instances of different classes."""
     prompt = "(hbnb) "
     classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
 
-    def do_hbnh(self, line):
-        print("hello")
-
-
     def do_help(self, arg):
+        """This method provides help info for commands."""
         if arg:
             try:
                 func = getattr(self, "help_" + arg)
@@ -37,8 +35,8 @@ class HBNBCommand(cmd.Cmd):
                   "EOF  help  quit")
 
     def do_create(self, line):
-        """This method creates a new instance of BaseModel and saves it to
-        the JSON file, then prints the ID."""
+        """This method creates a new instance of a given class
+        and saves it to the JSON file, then prints the ID."""
         if not line:
             print("** class name missing **")
             return
@@ -180,7 +178,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         return True
 
-    def emptyline(self, line):
+    def emptyline(self):
         return
 
 
