@@ -29,7 +29,7 @@ class TestFileStorage(unittest.TestCase):
         key = "{}.{}".format(self.obj.__class__.__name__, self.obj.id)
         self.storage.new(self.obj)
         all_objects = self.storage.all()
-        self.assertEqual(all_objects[key], self.all_objects)
+        self.assertEqual(all_objects[key], self.obj)
 
     def test_save(self):
         """test save method for file_storage"""
