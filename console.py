@@ -19,7 +19,8 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """A command-line interface for managing instances of different classes."""
     prompt = "(hbnb) "
-    classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
+    classes = ["BaseModel", "User", "State",
+               "City", "Amenity", "Place", "Review"]
 
     def do_help(self, arg):
         """This method provides help info for commands."""
