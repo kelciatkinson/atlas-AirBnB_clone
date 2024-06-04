@@ -16,7 +16,6 @@ class FileStorage():
     and deserialization of objects to and from a JSON file"""
     __file_path = "file.json"
     __objects = {}
-    __classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
 
     @property
     def file_path(self):
