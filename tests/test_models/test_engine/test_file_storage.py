@@ -46,7 +46,7 @@ class TestFileStorage(unittest.TestCase):
         """test new method for file_storage"""
         model = BaseModel()
         self.storage.new(model)
-        my_dict - self.storage.all()
+        my_dict = self.storage.all()
         self.assertIn(model, my_dict.values())
 
 
