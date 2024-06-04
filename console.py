@@ -55,6 +55,8 @@ class HBNBCommand(cmd.Cmd):
             instance = User()
         elif cls == "State":
             instance = State()
+        elif cls == City():
+            instance = City()
         elif cls == "Amenity":
             instance = Amenity()
         elif cls == "Place":
