@@ -26,7 +26,6 @@ class HBNBCommand(cmd.Cmd):
                 return
             func()
         else:
-            command = ["EOF", "help", "quit"]
             print("Documented commands(type help <topic>):\n"
                   "========================================\n"
                   "EOF  help  quit")
@@ -44,7 +43,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        instance = BaseModel()
+        if cls == "BaseModel":
+            instance = BaseModel()
+        elif cls == "User":
+            instance = User()
+
         instance.save()
         print(instance.id)
 
@@ -92,10 +95,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, line):
         args = line.split()
-        cls = args[0]
+
         if not args:
             print("** class name missing **")
             return
+
+        cls = args[0]
 
         if cls not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
@@ -116,11 +121,11 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, line):
         args = line.split()
 
-        cls = args[0]
-
         if not args:
             print("** class name missing **")
             return
+
+        cls = args[0]
 
         if cls not in ["BaseModel", "User"]:
             print("** class doesn't exist **")

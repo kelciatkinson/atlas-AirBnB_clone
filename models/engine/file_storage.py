@@ -48,4 +48,8 @@ class FileStorage():
             with open(self.__file_path, "r") as file:
                 objects_dict = json.load(file)
             for key, value in objects_dict.items():
-                self.__objects[key] = BaseModel(**value)
+                cls = value["__class__"]
+                if cls == "BaseModel":
+                    self.__objects[key] = BaseModel(**value)
+                elif cls == "User":
+                    self.__objects[key] = User(**value)
