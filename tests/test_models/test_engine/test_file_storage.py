@@ -27,7 +27,11 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(type(file.file_path), str)
     
     def test_all(self):
-        pass
+        """test all method for file_storage"""
+        model = BaseModel()
+        my_dict = self.storage.all()
+        self.assertIsInstance(my_dict, dict)
+        self.assertIn(model, my_dict.values())
 
     def test_save(self):
         pass
