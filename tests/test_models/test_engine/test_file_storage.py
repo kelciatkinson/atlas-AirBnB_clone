@@ -19,10 +19,11 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all(self):
         """test all method for file_storage"""
-        model = BaseModel()
-        my_dict = self.storage.all()
-        self.assertIsInstance(my_dict, dict)
-        self.assertIn(model, my_dict.values())
+        all_obj = self.storage.all()
+        key = "{}.{}".format(self.obj.__class__.__name__, self.obj.id)
+        self.storage.new(self.obj)
+        all_objects = self.storage.all()
+        self.assertEqual(all_objects[key], self.obj)
 
     def test_save(self):
         """test save method for file_storage"""
@@ -44,10 +45,9 @@ class TestFileStorage(unittest.TestCase):
 
     def test_new(self):
         """test new method for file_storage"""
-        model = BaseModel()
-        self.storage.new(model)
-        my_dict = self.storage.all()
-        self.assertIn(model, my_dict.values())
+        key = "{}.{}".format(self.obj.__class__.__name__, self.obj.id)
+        self.storage.new(self.obj)
+        self.assertIn(key, self.storage.all())
 
 
 if __name__ == "__main__":
