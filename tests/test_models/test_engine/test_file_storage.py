@@ -33,18 +33,16 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsInstance(my_dict, dict)
         self.assertIn(model, my_dict.values())
 
-    def test_save(self):
-        """ test file_storage save method """
-        self.assertTrue(os.path.exists("file.json"))
-        with open("file.json", mode="r", encoding="utf-8") as file:
-            file_content = file.read()
-        self.assertTrue(len(file_content) > 0)
-        self.assertIn(f"{self.model.__class__.__name__}.{self.model.id}",
-                      file_content)
-
-    def test_reload(self):
-        """ test file_storage reload method """
-        pass
+    def test_save_and_reload(self):
+        """ test file_storage save and reload method """
+        key = "{}.{}".format(self.obj.__class__.__name__, self.obj.id)
+        self.storage.new(self.obj)
+        self.storage.save()
+        new_storage = FileStorage()
+        new_storage.reload()
+        reloaded_object = new_storage.all()[key]
+        self.assertEqual(reloaded_object.id, self.obj.id)
+        self.assertEqual(reloaded_object.to_dict(), self.obj.to_dict())
 
 if __name__ == '__main__':
     unittest.main()
