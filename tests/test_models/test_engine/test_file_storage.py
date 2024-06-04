@@ -33,14 +33,14 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save(self):
         """test save method for file_storage"""
-        key = "{}.{}".format(self.obj.__class__.__name__, self.obj.id)
+        key = f"{self.obj.__class__.__name__}.{self.obj.id}"
         self.storage.new(self.obj)
         self.storage.save()
         self.assertEqual(self.storage.all()[key].id, self.obj.id)
 
-    def test_relaod(self):
+    def test_reload(self):
         """test reload method for file_storage"""
-        key = "{}.{}".format(self.obj.__class__.__name__, self.obj.id)
+        key = f"{self.obj.__class__.__name__}.{self.obj.id}"
         self.storage.new(self.obj)
         self.storage.save()
         storage_2 = FileStorage()
@@ -51,7 +51,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_new(self):
         """test new method for file_storage"""
-        key = "{}.{}".format(self.obj.__class__.__name__, self.obj.id)
+        key = f"{self.obj.__class__.__name__}.{self.obj.id}"
         self.storage.new(self.obj)
         self.assertIn(key, self.storage.all())
 
