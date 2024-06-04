@@ -8,8 +8,7 @@ classes will inherit"""
 
 class BaseModel():
     """Base Model Class"""
-    
-    
+
     def __init__(self, *args, **kwargs):
         """Base Model Class Initialization
         Unique identifier is assigned to the instance
@@ -41,7 +40,7 @@ class BaseModel():
 
     def __str__(self):
         """provides human readable prepresentation of an obj"""
-        return"[{}] ({}) {}".format(
+        return "[{}] ({}) {}".format(
             self.__class__.__name__,
             self.id,
             self.__dict__)
@@ -50,4 +49,3 @@ class BaseModel():
         """Update updated_at with current datetime."""
         self.updated_at = datetime.now()
         models.storage.save()
-        
