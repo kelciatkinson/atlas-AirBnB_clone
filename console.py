@@ -18,15 +18,7 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
-    classes = {
-        "BaseModel": BaseModel,
-        "User": User,
-        "State": State,
-        "City": City,
-        "Amenity": Amenity,
-        "Place": Place,
-        "Review": Review
-    }
+    classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
 
     def do_hbnh(self, line):
         print("hello")
@@ -103,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
 
             cls = line.split()[0]
 
-            if cls not in ["BaseModel", "User"]:
+            if cls not in self.classes:
                 print("** class doesn't exist **")
                 return
 
@@ -124,7 +116,7 @@ class HBNBCommand(cmd.Cmd):
 
         cls = args[0]
 
-        if cls not in ["BaseModel", "User"]:
+        if cls not in self.classes:
             print("** class doesn't exist **")
             return
 
@@ -149,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
 
         cls = args[0]
 
-        if cls not in ["BaseModel", "User"]:
+        if cls not in self.classes:
             print("** class doesn't exist **")
             return
 
