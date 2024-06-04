@@ -76,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         cls = arg.split()[0]
-        if cls not in ["BaseModel", "User"]:
+        if cls not in self.classes:
             print("** class doesn't exist **")
             return
 
@@ -180,7 +180,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         return True
 
-    def emptyline(self):
+    def emptyline(self, line):
         return
 
 
