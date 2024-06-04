@@ -22,5 +22,7 @@ class Test_Base(unittest.TestCase):
 
     def test_to_dict(self):
         a = BaseModel()
-        dictionary = a.to_dict()
-        self.assertEqual(dict, type(dictionary))
+        a_dict = a.to_dict()
+        self.assertIsInstance(a_dict, dict)
+        self.assertIsInstance(a_dict["updated_at"], str)
+        self.assertIsInstance(a_dict["created_at"], str)
