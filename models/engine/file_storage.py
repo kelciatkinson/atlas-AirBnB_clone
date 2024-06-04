@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This module defines the class FileStorage"""
+import os
+import json
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -7,8 +9,6 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-import json
-import os
 
 
 class FileStorage():
