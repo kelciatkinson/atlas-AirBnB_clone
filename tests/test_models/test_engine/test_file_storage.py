@@ -25,8 +25,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(str, type(FileStorage._FileStorage__file_path))
 
     def test_all(self):
-        """test all method for file_storage"""
-        """ test file_storage all method """
+        """ test all method """
         model = BaseModel()
         my_dict = self.storage.all()
         self.assertIsInstance(my_dict, dict)
