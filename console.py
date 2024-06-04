@@ -8,11 +8,25 @@ Commands available:
 import cmd
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
+    classes = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review
+    }
 
     def do_hbnh(self, line):
         print("hello")
@@ -39,7 +53,7 @@ class HBNBCommand(cmd.Cmd):
 
         cls = line.split()[0]
 
-        if cls not in ["BaseModel", "User"]:
+        if cls not in self.classes:
             print("** class doesn't exist **")
             return
 
@@ -47,6 +61,14 @@ class HBNBCommand(cmd.Cmd):
             instance = BaseModel()
         elif cls == "User":
             instance = User()
+        elif cls == "State":
+            instance = State()
+        elif cls == "Amenity":
+            instance = Amenity()
+        elif cls == "Place":
+            instance = Place()
+        elif cls == "Review":
+            instance = Review()
 
         instance.save()
         print(instance.id)

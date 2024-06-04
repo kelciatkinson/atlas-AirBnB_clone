@@ -16,6 +16,15 @@ class FileStorage():
     """File Storage Class"""
     __file_path = "file.json"
     __objects = {}
+    __classes = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review
+    }
 
     @property
     def file_path(self):
@@ -55,18 +64,19 @@ class FileStorage():
             with open(self.__file_path, "r") as file:
                 objects_dict = json.load(file)
             for key, value in objects_dict.items():
-                cls = value["__class__"]
-                if cls == "BaseModel":
+                cls_name = value["__class__"]
+                cls = self.__classes[cls_name]
+                if cls_name == "BaseModel":
                     self.__objects[key] = BaseModel(**value)
-                elif cls == "User":
+                elif cls_name == "User":
                     self.__objects[key] = User(**value)
-                elif cls == "State":
+                elif cls_name == "State":
                     self.__objects[key] = State(**value)
-                elif cls == "City":
+                elif cls_name == "City":
                     self.__objects[key] = City(**value)
-                elif cls == "Amenity":
+                elif cls_name == "Amenity":
                     self.__objects[key] = Amenity(**value)
-                elif cls == "Place":
+                elif cls_name == "Place":
                     self.__objects[key] = Place(**value)
-                elif cls == "Review":
+                elif cls_name == "Review":
                     self.__objects[key] = Review(**value)
