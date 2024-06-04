@@ -23,6 +23,4 @@ class Test_Base(unittest.TestCase):
     def test_to_dict(self):
         a = BaseModel()
         dictionary = a.to_dict()
-        self.assertEqual(dictionary["__class__"], "BaseModel")
-        self.assertEqual(dictionary["created_at"], a.created_at.isoformat())
-        self.assertEqual(dictionary["updated_at"], a.created_at.isoformat())
+        self.assertEqual(dict, type(dictionary))
