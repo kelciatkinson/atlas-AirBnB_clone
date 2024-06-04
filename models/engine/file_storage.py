@@ -15,7 +15,7 @@ class FileStorage():
     """File Storage Class to manage serialization
     and deserialization of objects to and from a JSON file"""
 
-    # Private attributes 
+    # Private attributes
     __file_path = "file.json"
     __objects = {}
 
@@ -31,7 +31,7 @@ class FileStorage():
         return self.__objects
 
     def new(self, obj):
-        """This method adds a new object to the __objects dictionary. 
+        """This method adds a new object to the __objects dictionary.
         The object's key isthe class name with object's ID separated
         by a period. The object is the value."""
 
