@@ -1,5 +1,6 @@
 """module for test_base"""
 import unittest
+import os
 from models.base_model import BaseModel
 
 
@@ -14,7 +15,11 @@ class Test_Base(unittest.TestCase):
 
     def test_save(self):
         """test save method of BaseModel"""
-        self.assertNotEqual(self.model.created_at, self.model.updated_at)
+        one_save = my_model.updated_at
+        my_model = my_model.save()
+        self.assertTrue(os.path.exists("file.json"))
+        two_save = my_model.updated_at
+        self.assertNotEqual(one_save, two_save)
 
     def test_to_dict(self):
         a = BaseModel()
