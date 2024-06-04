@@ -7,6 +7,7 @@ Commands available:
  - EOF: Exits the program."""
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -30,16 +31,16 @@ class HBNBCommand(cmd.Cmd):
                   "========================================\n"
                   "EOF  help  quit")
 
-    def do_create(self, cls):
+    def do_create(self, line):
         """This method creates a new instance of BaseModel and saves it to
         the JSON file, then prints the ID."""
-        if not cls:
+        if not line:
             print("** class name missing **")
             return
 
-        name = cls.split()[0]
+        cls = line.split()[0]
 
-        if name != "BaseModel":
+        if cls not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
             return
 
@@ -55,7 +56,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        if args[0] != "BaseModel":
+        cls = arg.split()[0]
+        if cls not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
             return
 
@@ -74,9 +76,9 @@ class HBNBCommand(cmd.Cmd):
         list_inst = []
         if line:
 
-            args = line.split()
+            cls = line.split()[0]
 
-            if args[0] != "BaseModel":
+            if cls not in ["BaseModel", "User"]:
                 print("** class doesn't exist **")
                 return
 
@@ -90,11 +92,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, line):
         args = line.split()
+        cls = args[0]
         if not args:
             print("** class name missing **")
             return
 
-        if args[0] != "BaseModel":
+        if cls not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
             return
 
@@ -112,11 +115,14 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, line):
         args = line.split()
+
+        cls = args[0]
+
         if not args:
             print("** class name missing **")
             return
 
-        if args[0] != "BaseModel":
+        if cls not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
             return
 
