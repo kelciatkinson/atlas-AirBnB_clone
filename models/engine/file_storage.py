@@ -2,6 +2,13 @@
 """This module defines the class FileStorage"""
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+
+
 import json
 import os
 
@@ -53,3 +60,13 @@ class FileStorage():
                     self.__objects[key] = BaseModel(**value)
                 elif cls == "User":
                     self.__objects[key] = User(**value)
+                elif cls == "State":
+                    self.__objects[key] = State(**value)
+                elif cls == "City":
+                    self.__objects[key] = City(**value)
+                elif cls == "Amenity":
+                    self.__objects[key] = Amenity(**value)
+                elif cls == "Place":
+                    self.__objects[key] = Place(**value)
+                elif cls == "Review":
+                    self.__objects[key] = Review(**value)
