@@ -26,7 +26,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all(self):
         """test all method for file_storage"""
-        key = "{}.{}".format(self.obj.__class__.__name__, self.obj.id)
+        key = f"{self.obj.__class__.__name__}.{self.obj.id}"
         self.storage.new(self.obj)
         all_objects = self.storage.all()
         self.assertEqual(all_objects[key], self.obj)
