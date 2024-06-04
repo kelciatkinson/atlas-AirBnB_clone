@@ -14,12 +14,11 @@ class Test_Base(unittest.TestCase):
         self.assertTrue(isinstance(base, BaseModel))
 
     def test_save(self):
-        """test save method of BaseModel"""
-        my_model = my_model.save()
-        one_save = my_model.updated_at
-        self.assertTrue(os.path.exists("file.json"))
-        two_save = my_model.updated_at
-        self.assertNotEqual(one_save, two_save)
+        o = BaseModel()
+        original = o.updated_at
+        o.save()
+        after = o.updated_at
+        self.assertNotEqual(original, after)
 
     def test_to_dict(self):
         a = BaseModel()
