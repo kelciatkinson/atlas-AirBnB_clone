@@ -19,10 +19,10 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all(self):
         """test all method for file_storage"""
-        model = Basemodel()
+        model = BaseModel()
         my_dict = self.storage.all()
         self.assertIsInstance(my_dict, dict)
-        self.assertIn(model, myy_dict.values())
+        self.assertIn(model, my_dict.values())
 
     def test_save(self):
         """test save method for file_storage"""
