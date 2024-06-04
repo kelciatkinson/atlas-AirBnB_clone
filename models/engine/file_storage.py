@@ -12,18 +12,11 @@ from models.review import Review
 
 
 class FileStorage():
-    """File Storage Class"""
+    """File Storage Class to manage serialization
+    and deserialization of objects to and from a JSON file"""
     __file_path = "file.json"
     __objects = {}
-    __classes = {
-        "BaseModel": BaseModel,
-        "User": User,
-        "State": State,
-        "City": City,
-        "Amenity": Amenity,
-        "Place": Place,
-        "Review": Review
-    }
+    __classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
 
     @property
     def file_path(self):
@@ -34,15 +27,15 @@ class FileStorage():
         self.__file_path = value
 
     def all(self):
-        """Returns the dictionary __objects. This method provides access to the
-        dictionary "__objects" that stores all objects managed by the instance 
-        "FileStorage". """
+        """Returns the dictionary __objects.
+        This method provides access to the dictionary "__objects" that
+        stores all objects managed by the instance "FileStorage"."""
         return self.__objects
 
     def new(self, obj):
         """This method adds a new object to the __objects dictionary. The key
         for the object is the class name with object's ID separated by a period.
-        The value is the object itself."""
+        The object is the value."""
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj
 
@@ -64,7 +57,6 @@ class FileStorage():
                 objects_dict = json.load(file)
             for key, value in objects_dict.items():
                 cls_name = value["__class__"]
-                cls = self.__classes[cls_name]
                 if cls_name == "BaseModel":
                     self.__objects[key] = BaseModel(**value)
                 elif cls_name == "User":
