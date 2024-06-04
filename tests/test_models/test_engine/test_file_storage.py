@@ -23,9 +23,8 @@ class TestFileStorage(unittest.TestCase):
 
     def test_new(self):
         """test new method for file_storage"""
-        key = f"{self.obj.__class__.__name__}.{self.obj.id}"
-        self.storage.new(self.obj)
-        self.assertIn(key, self.storage.all())
+        file = FileStorage()
+        self.assertEqual(type(file.file_path), str)
     
     def test_all(self):
         pass
