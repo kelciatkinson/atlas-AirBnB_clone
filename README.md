@@ -22,7 +22,7 @@ The command interpreter serves as a command-line interface facilitating user int
 
 In order to launch the command interpreter, follow these instructions:
 
-```sh
+```
 Clone the project repository from GitHub.
 Check to see that Python 3 is installed on your system.
 Open a terminal and arrive at the project directory.
@@ -30,7 +30,7 @@ Run the command ./console.py in order to launch the command interpreter.
 ```
 
 ### Commands for the Command Interpreter
-```sh
+```
 all: Retrieve all objects/all objects of a specific class.
 create: Create new instance of an object.
 destroy: Delete an object from system.
