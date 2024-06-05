@@ -13,5 +13,5 @@ class TestCity(unittest.TestCase):
         def test_city(self):
             """unit tests for City"""
             city = City()
-            self.assertTrue(hasattr(city, "state_id"))
-            self.assertTrue(hasattr(city, "name"))
+            self.assertIsInstance(city.state_id, str)
+            self.assertIsInstance(city.name, str)
