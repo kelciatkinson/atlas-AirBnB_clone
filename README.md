@@ -2,8 +2,6 @@
 
 ## Project Overview
 
-Welcome to our AirBnB Clone project! This is the first step towards building a full web application: the AirBnB clone. This initial phase is crucial as it establishes the foundation for all future projects: HTML/CSS templating, database storage, API development, and front-end integration.
-
 The primary focus of this current project is to develop a command-line interpreter that manages the objects of our AirBnB clone application. This command interpreter will allow us to:
 
 - Create new objects (ex: User, Place)
@@ -12,7 +10,7 @@ The primary focus of this current project is to develop a command-line interpret
 - Update object attributes
 - Destroy objects
 
-## Created by:
+Created by:
 
 - Abigail Allman: [LinkedIn](https://www.linkedin.com/in/abigailraleman/)
 - Kelci Atkinson: [LinkedIn](https://www.linkedin.com/in/kelciatkinson/)
