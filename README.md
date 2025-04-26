@@ -12,29 +12,10 @@ The primary focus of this current project is to develop a command-line interpret
 - Update object attributes
 - Destroy objects
 
-## About the Developers
+## Created by:
 
-Hello! We're Abigail Allman and Kelci Atkinson, software engineering students passionate about building scalable and modular applications. This project represents our deep dive into Python's object-oriented programming concepts and the development of complex command-line interfaces.
-
-Connect with us:
 - Abigail Allman: [LinkedIn](https://www.linkedin.com/in/abigailraleman/)
 - Kelci Atkinson: [LinkedIn](https://www.linkedin.com/in/kelciatkinson/)
-
-## The Journey of Building the AirBnB Clone
-
-Our development process unfolded in several key stages:
-
-1. **Understanding the Problem Space**: We began by researching AirBnB's architecture and identifying core entities like Users, Places, Reviews, etc.
-
-2. **Designing the Base Architecture**: Our first major challenge was developing the BaseModel class - the foundation for all other models. This involved implementing serialization/deserialization mechanisms and unique ID generation.
-
-3. **Developing the Storage Engine**: Creating the FileStorage class introduced us to JSON serialization/deserialization, file I/O in Python, and maintaining object persistence.
-
-4. **Building the Command Interpreter**: Perhaps the most challenging part was developing the command-line interface using Python's cmd module, which required careful parsing of user inputs and thoughtful error handling.
-
-5. **Implementing Unit Tests**: We adopted a test-driven development approach, writing comprehensive unit tests for all components to ensure robustness.
-
-Each stage presented unique learning opportunities and challenges, from understanding object serialization to managing complex command parsing logic.
 
 ## Installation
 1. Clone the repository:
